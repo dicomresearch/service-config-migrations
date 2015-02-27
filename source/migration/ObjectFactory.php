@@ -18,7 +18,7 @@ class ObjectFactory
     /**
      *
      */
-    function __construct(IModuleHelper $moduleHelper)
+    function __construct($moduleHelper)
     {
         $this->moduleHelper = $moduleHelper;
     }
@@ -35,7 +35,7 @@ class ObjectFactory
         require_once($path);
         $migrationName = $this->moduleHelper->getMigrationNameFromFilePath($path);
         $moduleName = $this->moduleHelper->getMigrationModuleNameFromFilePath($path);
-        return new self($migrationName, $moduleName, $path);
+        return new Object($migrationName, $moduleName, $path);
     }
 
     /**
@@ -49,6 +49,6 @@ class ObjectFactory
     {
         $path = $this->moduleHelper->getMigrationFilePath($migrationName, $moduleName);
         require_once($path);
-        return new self($migrationName, $moduleName, $path);
+        return new Object($migrationName, $moduleName, $path);
     }
 } 
