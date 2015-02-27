@@ -7,8 +7,6 @@ namespace dicom\configMigrations\interfaces;
  */
 interface IProvider
 {
-    public static function create(array $config);
-
     /**
      * @param string $section
      * @return mixed
@@ -28,11 +26,4 @@ interface IProvider
      * @return mixed
      */
     public function modify($section, array $data);
-
-    /**
-     * return a configuration as key => value
-     *
-     * @return array
-     */
-    public function getConfig();
-} 
+}
