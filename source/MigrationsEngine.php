@@ -73,14 +73,6 @@ class MigrationsEngine
     {
         // найти $amount миграций через сеарчер
         $migrations = $this->migrationsSearcher->searchNewMigrations($amount);
-        $this->checkMigrationsListIsEmpty($migrations);
-
-        $promptMessage = 'Are you shure want to apply ' . count($migrations) . ' migrations?' . PHP_EOL;
-        foreach ($migrations as $migration) {
-            $promptMessage .= '* ' . $migration->getName() . PHP_EOL;
-        }
-        $this->promptToHandleMigrations($promptMessage);
-
         foreach ($migrations as $migration) {
             $migration->up();
 
@@ -89,25 +81,29 @@ class MigrationsEngine
 
             echo 'Migration "' . $migration->getName() . '" successfuly applied' . PHP_EOL;
         }
-
-        echo PHP_EOL . 'Total migrations successfuly applied: ' . count($migrations) . PHP_EOL;
     }
 
     /**
+     * Получить новые миграции
+     *
+     * @param $amount
+     * @return array
+     * @throws MigrationsException
+     */
+    public function getNewMigrations($amount)
+    {
+        return $this->migrationsSearcher->searchNewMigrations($amount);
+    }
+
+    /**
+     * Откатить миграции
+     *
      * @param $amount
      */
     public function migrateDown($amount)
     {
         // найти $amount миграций через сеарчер
         $migrations = $this->migrationsSearcher->searchAppliedMigrations($amount);
-        $this->checkMigrationsListIsEmpty($migrations);
-
-        $promptMessage = 'Are you shure want to revert ' . count($migrations) . ' migrations?' . PHP_EOL;
-        foreach ($migrations as $migration) {
-            $promptMessage .= '* ' . $migration->getName() . PHP_EOL;
-        }
-        $this->promptToHandleMigrations($promptMessage);
-
         foreach ($migrations as $migration) {
             $migration->down();
 
@@ -116,8 +112,17 @@ class MigrationsEngine
 
             echo 'Migration "' . $migration->getName() . '" successfuly reverted' . PHP_EOL;
         }
+    }
 
-        echo PHP_EOL . 'Total migrations successfuly reverted: ' . count($migrations) . PHP_EOL;
+    /**
+     * Получить примененные миграции
+     *
+     * @param $amount
+     * @return array
+     */
+    public function getAppliedMigrations($amount)
+    {
+        return $this->migrationsSearcher->searchAppliedMigrations($amount);
     }
 
     /**
@@ -129,44 +134,7 @@ class MigrationsEngine
      */
     public function createMigration($migrationName, $moduleName)
     {
-        $this->promptToHandleMigrations(
-            'Are you shure want to create migration \'' . $migrationName . '\' in module \'' . $moduleName . '\'?' . PHP_EOL);
         $migrationFileBuilder = new MigrationFileBuilder($this->configer, $this->moduleHelper);
         $migrationFileBuilder->build($migrationName, $moduleName);
-        echo "New migration created successfully" . PHP_EOL;
     }
-
-    /**
-     * Проверка что список миграций не пустой
-     *
-     * @param $migrationsList
-     */
-    private function checkMigrationsListIsEmpty($migrationsList)
-    {
-        if (empty($migrationsList)) {
-            echo 'There are no applied migrations' . PHP_EOL;
-            exit;
-        }
-    }
-
-    /**
-     * Спрашиваем пользователя хочет ли он совершить действие над миграциями
-     *
-     * @param $promptMessage
-     */
-    private function promptToHandleMigrations($promptMessage)
-    {
-        echo PHP_EOL . $promptMessage;
-        echo 'Type \'y\' to continue:' . PHP_EOL;
-
-        $handle = fopen ('php://stdin', 'r');
-        $line = fgets($handle);
-
-        if (trim($line) === 'y') {
-            echo 'Continuing...' . PHP_EOL;
-        } else {
-            echo 'Aborting...' . PHP_EOL;
-            exit;
-        }
-    }
-} 
+}
