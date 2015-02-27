@@ -11,7 +11,6 @@ interface IModuleHelper
 {
     public function isModuleExists($moduleName);
     public function getModules();
-    public function getModulePath($moduleName);
     public function getMigrationFolderPath($moduleName);
     public function getMigrationFilePath($migrationName, $moduleName);
     public function getMigrationNameFromFilePath($path);
