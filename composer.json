@@ -1,0 +1,13 @@
+{
+    "name": "common/config-migrations",
+    "description": "This library used to work with configuration migrations",
+    "license": "DICOM Consulting",
+    "authors": [
+        {
+            "name": "Sergey Chuprunov",
+            "email": "s.chuprynov@dicoming.com"
+        }
+    ],
+    "require": {
+    }
+}
