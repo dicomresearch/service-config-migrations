@@ -1,8 +1,8 @@
 <?php
 
-namespace configMigrations\migration;
-use configMigrations\interfaces\IModuleHelper;
-use configMigrations\MigrationsException;
+namespace dicom\configMigrations\migration;
+use dicom\configMigrations\interfaces\IModuleHelper;
+use dicom\configMigrations\MigrationsException;
 
 /**
  * ObjectFactory

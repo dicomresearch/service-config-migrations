@@ -1,11 +1,10 @@
 <?php
 
-namespace configMigrations;
-use configMigrations\interfaces\IConfiger;
-use configMigrations\interfaces\IModuleHelper;
-use configMigrations\interfaces\IProvider;
-use configMigrations\migration\ObjectFactory;
-use configMigrations\searchers\MigrationsSearcher;
+namespace dicom\configMigrations;
+use dicom\configMigrations\interfaces\IConfiger;
+use dicom\configMigrations\interfaces\IModuleHelper;
+use dicom\configMigrations\interfaces\IProvider;
+use dicom\configMigrations\migration\ObjectFactory;
 
 /**
  * ConfigMigrationsEngine

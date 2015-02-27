@@ -1,8 +1,8 @@
 <?php
 
-namespace configMigrations;
-use configMigrations\interfaces\IConfiger;
-use configMigrations\interfaces\IModuleHelper;
+namespace dicom\configMigrations;
+use dicom\configMigrations\interfaces\IConfiger;
+use dicom\configMigrations\interfaces\IModuleHelper;
 
 /**
  * MigrationFileBuilder 

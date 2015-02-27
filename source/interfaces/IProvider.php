@@ -1,6 +1,6 @@
 <?php
 
-namespace configMigrations\interfaces;
+namespace dicom\configMigrations\interfaces;
 
 /**
  * IProvider 

@@ -1,10 +1,8 @@
 <?php
 
-namespace configMigrations\searchers;
-use configMigrations\interfaces\IModuleHelper;
-use configMigrations\migration\ObjectFactory;
-use configMigrations\MigrationsException;
-use configMigrations\ServiceConfigFacade;
+namespace dicom\configMigrations;
+use dicom\configMigrations\interfaces\IModuleHelper;
+use dicom\configMigrations\migration\ObjectFactory;
 
 /**
  * MigrationsSearcher

@@ -1,7 +1,7 @@
 <?php
 
-namespace configMigrations\migration;
-use configMigrations\MigrationsException;
+namespace dicom\configMigrations\migration;
+use dicom\configMigrations\MigrationsException;
 
 /**
  * MigrationObject

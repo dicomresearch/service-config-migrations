@@ -1,11 +1,11 @@
 <?php
 
-namespace configMigrations;
+namespace dicom\configMigrations;
 
 /**
  * MigrationsException 
  */
-class MigrationsException extends \CException
+class MigrationsException extends \Exception
 {
     public static function migrationHistoryTableNotExist()
     {

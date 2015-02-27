@@ -1,6 +1,6 @@
 <?php
 
-namespace configMigrations;
+namespace dicom\configMigrations;
 
 /**
  * ServiceConfigFacade
