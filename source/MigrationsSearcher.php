@@ -3,7 +3,6 @@
 namespace configMigrations\searchers;
 use configMigrations\interfaces\IModuleHelper;
 use configMigrations\migration\ObjectFactory;
-use configMigrations\MigrationObject;
 use configMigrations\MigrationsException;
 use configMigrations\ServiceConfigFacade;
 
