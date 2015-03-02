@@ -51,7 +51,7 @@ class MigrationsEngine
      * @param IConfiger $configer
      * @param IModuleHelper $moduleHelper
      */
-    function __construct(IConfiger $configer, IProvider $provider, IModuleHelper $moduleHelper)
+    function __construct(IConfiger $configer, $provider, IModuleHelper $moduleHelper)
     {
         $this->configer = $configer;
         $this->provider = $provider;
