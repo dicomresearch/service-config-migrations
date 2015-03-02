@@ -25,7 +25,7 @@ class ServiceConfigFacade
     /**
      * constructor
      */
-    public function __construct(interfaces\IProvider $provider, $refbook)
+    public function __construct($provider, $refbook)
     {
         $this->provider = $provider;
         $this->refbook = $refbook;
