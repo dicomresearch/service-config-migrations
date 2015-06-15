@@ -1,5 +1,5 @@
 {
-    "name": "configMigrations",
+    "name": "dicomresearch/config-migrations",
     "description": "This library used to work with configuration migrations",
     "license": "DICOM Consulting",
     "authors": [
